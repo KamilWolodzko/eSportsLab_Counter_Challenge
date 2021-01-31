@@ -15,9 +15,9 @@ pd.set_option('precision', 2)
 
 ## Loading data
 # de_inferno dataset -> Inferno
-inferno = pd.read_csv(r"train-grenades-de_inferno.csv")
+inferno = pd.read_csv(r"res/train-grenades-de_inferno.csv")
 # de_mirage dataset -> Mirage
-mirage = pd.read_csv(r"train-grenades-de_mirage.csv")
+mirage = pd.read_csv(r"res/train-grenades-de_mirage.csv")
 
 
 # Droping extra primary key
