@@ -38,12 +38,12 @@ def map_records_count(dataframe_name):
     demo_unique_id = dataframe_name['demo_id'].value_counts()
     # Number of unique demos
     number_unique_demos = len(dataframe_name['demo_id'].value_counts())
-    print(f'ID: Numb of rec:\n{demo_unique_id}\nUnique demos: {number_unique_demos}')
+    print(f'Demo ID: Numb of rec:\n{demo_unique_id}\nUnique demos: {number_unique_demos}\n')
     # ID and number of records
     demo_round_unique_id = dataframe_name['demo_round_id'].value_counts()
     # Number of unique rounds
     number_demo_round_unique = len(dataframe_name['demo_round_id'].value_counts())
-    print(f'ID: Numb of rec:\n{demo_round_unique_id}\nUnique rounds: {number_demo_round_unique}')
+    print(f'Demo round ID: Numb of rec:\n{demo_round_unique_id}\nUnique rounds: {number_demo_round_unique}')
 
 
 def map_percentage_of_throws(dataframe_name, map_name):
@@ -54,8 +54,6 @@ def map_percentage_of_throws(dataframe_name, map_name):
 
 
 def map_compare_throws(dataframe_name, map_sucessful_throws, map_failed_throws, map_name):
-    sns.countplot(x='LABEL', data=dataframe_name)
-    plt.show()
     count_true = map_sucessful_throws['team'].value_counts().sort_index()
     normalized_count_true = map_sucessful_throws['team'].value_counts(normalize=True).sort_index()
     count_false = map_failed_throws['team'].value_counts()
@@ -63,6 +61,8 @@ def map_compare_throws(dataframe_name, map_sucessful_throws, map_failed_throws, 
     print(
         f'Successful throws on {map_name} for each team:\n{count_true}\n\nPercentage of sucessful throws\n{normalized_count_true * 100}\n'
         f'\nIncorrect throws on {map_name} for each team:\n{count_false}\n\nPercentage of failed throws\n{normalized_count_false * 100}')
+    sns.countplot(x='LABEL', data=dataframe_name)
+    plt.show()
 
 
 def save_model(classifier, filename):

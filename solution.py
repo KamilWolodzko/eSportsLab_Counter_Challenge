@@ -70,7 +70,7 @@ df['LABEL'] = df['LABEL'].astype(int)
 ## Features distribution
 # draw_histograms(df, df.columns, 8, 4)
 df['throw_detonate_time'] = df['detonation_tick'] / 128 - df['throw_tick'] / 128
-df = df.drop(index=[df[(df['flashbang'] == 1) & (df['throw_detonate_time'] > 3)].index[0]])
+df = df.drop(index=df[(df['flashbang'] == 1) & (df['throw_detonate_time'] > 2)].index)
 start_x_point = df['throw_from_raw_x']
 start_y_point = df['throw_from_raw_y']
 start_z_point = df['throw_from_raw_z']
@@ -148,7 +148,7 @@ plt.title('Tree Confusion Matrix')
 plt.savefig('tree_con_mat')
 plt.show()
 
-cv = 2
+cv = 15
 cv_results = cross_validate(clf, X_train_scaled, y_train, scoring=['accuracy', 'f1_weighted', 'recall'], cv=cv,
                             return_estimator=True)
 

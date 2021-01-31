@@ -19,7 +19,12 @@ if __name__ == '__main__':
         df['throw_detonate_time'] = df['detonation_tick'] / 128 - df['throw_tick'] / 128
 
         try:
-            df = df.drop(index=[df[(df['flashbang'] == 1) & (df['throw_detonate_time'] > 3)].index[0]])
+            df = df.drop(index=df[(df['flashbang'] == 1) & (df['throw_detonate_time'] > 2)].index)
+        except Exception:
+            pass
+
+        try:
+            df = df.drop(index=df[(df['molotov'] == 1) & (df['throw_detonate_time'] > 2.2)].index)
         except Exception:
             pass
 
