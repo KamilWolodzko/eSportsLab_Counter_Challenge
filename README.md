@@ -1,5 +1,6 @@
 # eSportsLab_Counter_Challenge
-# From esportsLABgg Counter-Strike Data Challenge technical description of the task
+
+From esportsLABgg Counter-Strike Data Challenge technical description of the task
 
 Task Details
 Your main task is to write a script, which takes as input a CSV file with CS:GO matches grenade throws data. 
